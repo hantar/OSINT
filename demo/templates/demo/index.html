@@ -1,0 +1,27 @@
+{% extends "demo/base_generic.html" %}
+
+{% block content %}
+    <div class="col-4">
+        <h1>Dashboard</h1>
+        <p>Welcome to IIT's very own OSINT Dashboard! We offer Facebook, Twitter, and Web Crawlers lookups.</p>
+        <h3 class="text-muted">Get Started</h3>
+        <form>
+            <div class="form-group">
+                <label for="keywordSearch">Keyword Search</label>
+                <input type="text" class="form-control" id="keywordSearch" aria-describedby="keywordHelp" placeholder="Keyword">
+                <small id="keywordHelp" class="form-text text-muted">Enter in the keyword and click on a button to initiate a search.</small>
+            </div>
+            <div>
+                <button type="button" class="btn btn-danger">Web Crawler</button>
+                <button type="button" class="btn btn-primary" disabled>Facebook</button>
+                <button type="button" class="btn btn-success" disabled>Twitter</button>
+            </div>
+        </form>
+        <ul>
+          <li><strong>Item Count:</strong> {{ num_results }}</li>
+        </ul>
+    </div>
+    <div class="col-4">
+        <h2>Test</h2>
+    </div>
+{% endblock %}
