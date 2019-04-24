@@ -1,4 +1,6 @@
 from django.contrib import admin
-from .models import WebCrawler
+from .models import WebLinks
 # Register your models here.
-admin.site.register(WebCrawler)
+class WebLinksAdmin(admin.ModelAdmin):
+    list_display = ('title', 'url', 'created', 'updated')
+admin.site.register(WebLinks, WebLinksAdmin)

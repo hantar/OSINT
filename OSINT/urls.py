@@ -15,8 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django import views
+from demo import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('demo/', include('demo.urls')),
+    path('weblist/', views.WebListView.as_view(), name='weblist'),
+]
+
+#Add URL maps to redirect the base URL to our application
+urlpatterns += [
+    path('', views.generic.RedirectView.as_view(url='/demo/', permanent=True)),
 ]

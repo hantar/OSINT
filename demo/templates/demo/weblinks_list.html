@@ -1,0 +1,29 @@
+{% extends "demo/base_generic.html" %}
+
+{% block content %}
+  <h1>Book List</h1>
+  {% if weblinks_list %}
+      <table class="table table-hover table-sm">
+      <thead class="thead-light">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Created On</th>
+            <th scope="col">Last Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for weblink in weblinks_list %}
+            <tr>
+                <th scope="row">{{ weblink.id }}</th>
+                <td><a href="{{ weblink.url }}">{{ weblink.title }}</a></td>
+                <td>{{ weblink.created }}</td>
+                <td>{{ weblink.updated }}</td>
+            </tr>
+        {% endfor %}
+      </tbody>
+      </table>
+  {% else %}
+    <p>There are no weblinks in the library.</p>
+  {% endif %}       
+{% endblock %}
