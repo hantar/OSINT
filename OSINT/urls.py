@@ -21,7 +21,6 @@ from demo import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('demo/', include('demo.urls')),
-    path('weblist/', views.WebListView.as_view(), name='weblist'),
 ]
 
 #Add URL maps to redirect the base URL to our application

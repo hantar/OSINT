@@ -7,7 +7,6 @@
         <h3 class="text-muted">Get Started</h3>
         <form>
             <div class="form-group">
-                <label for="keywordSearch">Keyword Search</label>
                 <input type="text" class="form-control" id="keywordSearch" aria-describedby="keywordHelp" placeholder="Keyword">
                 <small id="keywordHelp" class="form-text text-muted">Enter in the keyword and click on a button to initiate a search.</small>
             </div>
@@ -17,16 +16,38 @@
                 <button type="button" class="btn btn-success" disabled>Twitter</button>
             </div>
         </form>
-        <ul>
-          <li><strong>Item Count:</strong> {{ num_results }}</li>
-        </ul>
     </div>
-    <div class="col-4">
-        <h1>Query Results</h1>
-        <ul>
-            <li>
-              {{ webc }}
-            </li>
-        </ul>
-    </div>
+    <div class="col">
+        <div class="row">
+            <div style="width:100%">
+            <h1 style="float:left">Query Results</h1>
+            <h1 style="float:right">Items: {{ num_results }}</h1>
+            <div style="clear:both"></div>
+            </div>
+
+  {% if raw_data %}
+      <table class="table table-hover table-sm">
+      <thead class="thead-light">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Created On</th>
+            <th scope="col">Last Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for weblink in raw_data %}
+            <tr>
+                <th scope="row">{{ weblink.id }}</th>
+                <td><a href="{{ weblink.url }}">{{ weblink.title }}</a></td>
+                <td>{{ weblink.created }}</td>
+                <td>{{ weblink.updated }}</td>
+            </tr>
+        {% endfor %}
+      </tbody>
+      </table>
+  {% else %}
+    <p>There is no data in the database.</p>
+  {% endif %}
+    </div></div>
 {% endblock %}

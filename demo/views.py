@@ -6,14 +6,13 @@ from django.views import generic
 
 def index(request):
     num_results = WebLinks.objects.all().count()
+    raw_data = WebLinks.objects.all()
     webc = WebLinks.objects.all()
     context = {
         'num_results': num_results,
-        'webc': webc
+        'webc': webc,
+        'raw_data': raw_data
     }
+
     return render(request, 'demo/index.html', context=context)
 
-class WebListView(generic.ListView):
-    model = WebLinks
-    context_object_name = 'weblinks_list'
-    template_name = 'demo/weblinks_list.html'
