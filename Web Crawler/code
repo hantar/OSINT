@@ -1,0 +1,21 @@
+from requests_html import HTMLSession
+import pandas as pd
+
+session = HTMLSession()
+url = "https://www.reddit.com/search?q=Avengers%3A%20Endgame"
+r = session.get(url)
+
+a = r.html.find('a')
+text_list = []
+url_list = []
+output = {}
+
+for h in a:
+    text = h.text
+    text_list.append(text)
+    link = list(h.absolute_links)[0]
+    url_list.append(link)
+
+output = {"text": text_list, "url": url_list}
+df = pd.DataFrame(output)
+df.to_csv('output.csv')
