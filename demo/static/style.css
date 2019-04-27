@@ -1,3 +1,32 @@
 body{
-    margin: 30px;
+    margin: 15px;
+    background: #2d3238;
+    color: white
+}
+
+h1, h2 {color: #04BF9D}
+
+a, a:hover {color: #A545BF}
+
+.queryCount {
+    float: right;
+    border-radius: 4px;
+    background: #A545BF;
+    font-weight: 500;
+    padding: 5px 8px;
+    height: 35px;
+    display: block;
+    margin: 12px 0
+}
+
+.tableHeader {
+    height: 60px;
+    width: 100%
+}
+
+.queryTitle {
+    font-size: 2.5rem;
+    color: #04BF9D;
+    float: left;
+    font-weight: 500
 }

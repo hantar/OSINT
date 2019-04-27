@@ -4,7 +4,7 @@
     <div class="col-4">
         <h1>Dashboard</h1>
         <p>Welcome to IIT's very own OSINT Dashboard! We offer Facebook, Twitter, and Web Crawlers lookups.</p>
-        <h3 class="text-muted">Get Started</h3>
+        <h3>Get Started</h3>
         <form>
             <div class="form-group">
                 <input type="text" class="form-control" id="keywordSearch" aria-describedby="keywordHelp" placeholder="Keyword">
@@ -19,15 +19,15 @@
     </div>
     <div class="col">
         <div class="row">
-            <div style="width:100%">
-            <h1 style="float:left">Query Results</h1>
-            <h1 style="float:right">Items: {{ num_results }}</h1>
+            <div class="tableHeader">
+                <div class="queryTitle"><h1>Query Results</h1></div>
+                <div class="queryCount">Items: {{ num_results }}</div>
             <div style="clear:both"></div>
             </div>
 
   {% if raw_data %}
-      <table class="table table-hover table-sm">
-      <thead class="thead-light">
+      <table class="table table-dark table-hover table-sm">
+      <thead class="">
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Title</th>
