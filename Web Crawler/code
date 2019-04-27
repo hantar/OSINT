@@ -1,0 +1,27 @@
+from requests_html import HTMLSession
+import pandas as pd
+
+session = HTMLSession()
+url = "https://www.reddit.com"
+r = session.get(url)
+
+Result = r.html.xpath("//div[@class='rpBJOHq2PR60pnwJlUyP0 s34aip-0 dvQtYX']")
+
+
+title_list = []
+url_list = []
+output = {}
+
+for R in Result:
+    link = R.find('span.y8HYJ-y_lTUHkQIc1mdCq')
+    for l in link:
+        a = l.find('a')
+        for li in a:
+            h2 = li.find('h2')
+            title_list.append(list(h2)[0].text)
+            url_list.append(list(li.absolute_links)[0])
+
+output = {"topic" : title_list, "Url": url_list}
+
+df = pd.DataFrame(data=output)
+df.to_csv("Top post everyday.csv")
