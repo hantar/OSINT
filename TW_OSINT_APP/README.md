@@ -1,2 +1,2 @@
 # TW_OSINT_APP
-Repo for Twitter OSINT application
+Code for Twitter streamer OSINT application. User enters the desired search term. 
