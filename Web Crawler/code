@@ -24,4 +24,4 @@ for R in Result:
 output = {"topic" : title_list, "Url": url_list}
 
 df = pd.DataFrame(data=output)
-df.to_csv("Top post everyday.csv")
+print(df)
