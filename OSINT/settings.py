@@ -108,9 +108,11 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'America/Chicago'
 
-USE_I18N = True
+DATETIME_FORMAT = 'm/d/Y h:i:s'
 
-USE_L10N = True
+USE_I18N = False
+
+USE_L10N = False
 
 USE_TZ = True
 
@@ -120,3 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "demo/static/")]
+
+# TWYTHON VARS
+TWITTER_KEY = '9juR7PXHYthviQ88fjljIP8Y3'
+TWITTER_SECRET = 'mQfK6vtSKIQqwuAFwtyEtoFBkke1FNvas0uRyUksVZn7OONVxR'

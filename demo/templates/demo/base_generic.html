@@ -14,5 +14,28 @@
       {% block content %}{% endblock %}
     </div>
   </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+{% block javascript %}{% endblock %}
+  <script>
+    $("#twitterCrawl").click(function() {
+    $.get("output.html", function(data) {
+        $("#scriptOutput").html(data);
+    }, "html");
+});
+</script>
+<script>
+  $(document).ready(function(){
+  $("#facebookCrawl").click(function(){
+      $.ajax({
+          method: "GET",
+          url: "twitterCrawl.py",
+          dataType: "text",
+          success: function(result){
+              let data=JSON.parse(result);
+              console.log(result);
+          }
+      });
+  });});
+</script>
 </body>
 </html>

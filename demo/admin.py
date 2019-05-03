@@ -1,6 +1,11 @@
 from django.contrib import admin
-from .models import WebLinks
+from .models import Datacrawl
+from .models import Category
 # Register your models here.
-class WebLinksAdmin(admin.ModelAdmin):
-    list_display = ('title', 'url', 'created', 'updated')
-admin.site.register(WebLinks, WebLinksAdmin)
+class DatacrawlAdmin(admin.ModelAdmin):
+    list_display = ('type', 'text', 'username', 'url', 'created', 'added')
+
+class CategoryAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Datacrawl, DatacrawlAdmin)
